@@ -1,6 +1,6 @@
 #import pyximport, os
 #pyximport.install(pyximport=True, language_level=3, inplace=True)
-#os.remove(os.path.join(os.path.split(__file__)[0], "ANMConverter.cp38-win_amd64.pyd"))
+#if os.path.exists(os.path.join(os.path.split(__file__)[0], "ANMConverter.cp38-win_amd64.pyd")): os.remove(os.path.join(os.path.split(__file__)[0], "ANMConverter.cp38-win_amd64.pyd"))
 #pyximport.install(pyximport=True, language_level=3, setup_args={"script_args": ["--cython-cplus"]}, inplace=True)
 
 import os
@@ -146,7 +146,7 @@ class XFLBuilder:
             swf.close()
 
         domDocument.writeStartElement("Include")    # Include main animation
-        domDocument.writeAttribute("href", animName + ".xml")
+        domDocument.writeAttribute("href", f"{animName}.xfl")
         domDocument.writeAttribute("loadImmediate", "false")
         domDocument.writeAttribute("lastModified", str(int(time.time())))
         domDocument.writeEndElement()

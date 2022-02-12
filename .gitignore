@@ -1,6 +1,6 @@
 .idea
 venv
-amims
+anims
 Lib
 
 python.traceback.txt
@@ -15,6 +15,7 @@ python38.dll
 *.cpp
 *.obj
 
+__pycache__
 core/__pycache__
 core/anm/__pycache__
 core/base/__pycache__

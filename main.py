@@ -284,14 +284,17 @@ class MainWindow(QMainWindow):
 
         animFileTreeItem: AnimationFileTreeItem = animTreeItem.parent().parent()
 
-        animPath = os.path.split(xflFile)[0]
-        xmlName = os.path.split(animPath)[-1]
-        xmlPath = os.path.join(animPath, "LIBRARY", f"{xmlName}.xml")
+        libraryPath = os.path.join(os.path.split(xflFile)[0], "LIBRARY")
+        xmlPath = ""
+        for xmlFile in os.listdir(libraryPath):
+            if not xmlFile.startswith("a_") and not xmlFile.startswith("Bones") and not xmlFile.startswith("Symbol"):
+                xmlPath = os.path.join(libraryPath, xmlFile)
+                break
 
         if animFileTreeItem.animFile.importXML(xmlPath):
-            self.statusBar.showMessage(f"Import '{xmlName}.xfl': successful")
+            self.statusBar.showMessage(f"Import successful")
         else:
-            self.statusBar.showMessage(f"Import '{xmlName}.xfl': failed")
+            self.statusBar.showMessage(f"Import failed")
 
     def animationExport(self, animTreeItem: AnimationTreeItem):
         builder = XFLBuilder(CONFIG["BrawlhallaPath"])
