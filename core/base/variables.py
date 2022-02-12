@@ -1,0 +1,1 @@
+SYMBOL_CLASS_JSON_PREFIX = "json="
