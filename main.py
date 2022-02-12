@@ -218,7 +218,7 @@ class MainWindow(QMainWindow):
         layout = QVBoxLayout()
 
         layout.addWidget(QLabel("Product: ANM Exporter"))
-        layout.addWidget(QLabel("Version: 0.1"))
+        layout.addWidget(QLabel("Version: 0.1.1"))
         layout.addWidget(QLabel("Used: BrawlhallaModloader Core (cut version)"))
         layout.addWidget(QLabel("Author: I_FabrizioG_I"))
         layout.addWidget(QLabel("Discord: I_FabrizioG_I#8111"))
